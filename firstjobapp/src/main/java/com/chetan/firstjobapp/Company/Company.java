@@ -1,6 +1,8 @@
 package com.chetan.firstjobapp.Company;
 
 import com.chetan.firstjobapp.job.Job;
+import com.chetan.firstjobapp.reviews.Reviews;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,9 +13,12 @@ public class Company {
     private Long id;
     private String name;
     private String description;
-    @OneToMany(mappedBy = "company")
+    @JsonIgnore
+    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Job> jobs;
-
+    @JsonIgnore
+    @OneToMany
+    private List<Reviews> reviews;
     public Company() {
     }
 
