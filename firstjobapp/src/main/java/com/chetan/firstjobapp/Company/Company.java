@@ -16,10 +16,18 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy = "company",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Job> jobs;
-    @JsonIgnore
-    @OneToMany
+
+    @OneToMany(mappedBy = "company")
     private List<Reviews> reviews;
     public Company() {
+    }
+
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Reviews> reviews) {
+        this.reviews = reviews;
     }
 
     public Company(Long id, String name, String description, List<Job> jobs) {
