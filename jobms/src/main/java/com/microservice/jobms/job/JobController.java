@@ -1,5 +1,7 @@
-package com.chetan.firstjobapp.job;
+package com.microservice.jobms.job;
 
+import com.microservice.jobms.job.Job;
+import com.microservice.jobms.job.JobService;
 import jdk.jshell.Snippet;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

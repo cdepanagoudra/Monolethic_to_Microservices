@@ -1,4 +1,4 @@
-package com.chetan.firstjobapp.job;
+package com.microservice.jobms.job;
 
 import java.util.List;
 

@@ -1,12 +1,11 @@
-package com.chetan.firstjobapp.job.impl;
+package com.microservice.jobms.job.impl;
 
-import com.chetan.firstjobapp.job.Job;
-import com.chetan.firstjobapp.job.JobRepository;
-import com.chetan.firstjobapp.job.JobService;
+
+import com.microservice.jobms.job.Job;
+import com.microservice.jobms.job.JobRepository;
+import com.microservice.jobms.job.JobService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +51,7 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public boolean updateJob(Long id,Job updatedjob) {
+    public boolean updateJob(Long id, Job updatedjob) {
         Optional<Job> jobOptional = jobRepository.findById(id);
 
             if(jobOptional.isPresent()){
