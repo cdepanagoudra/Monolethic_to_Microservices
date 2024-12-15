@@ -6,6 +6,8 @@ import com.microservice.jobms.job.JobRepository;
 import com.microservice.jobms.job.JobService;
 import com.microservice.jobms.job.dto.JobWithCompanyDTO;
 import com.microservice.jobms.job.external.Company;
+import com.microservice.jobms.job.mapper.JobMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
 public class JobServiceImpl implements JobService {
     //private List<Job> jobs = new ArrayList<>();
     JobRepository jobRepository;
+    @Autowired
+    RestTemplate restTemplate;
 
     public JobServiceImpl(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
@@ -37,10 +41,11 @@ public class JobServiceImpl implements JobService {
     }
     private JobWithCompanyDTO convertToDto(Job job){
 
-            JobWithCompanyDTO jobWithCompanyDTO = new JobWithCompanyDTO();
-            jobWithCompanyDTO.setJob(job);
-        RestTemplate restTemplate = new RestTemplate() ;
-            Company company = restTemplate.getForObject("http://localhost:8081/companies/"+job.getCompanyId(), Company.class);
+
+
+//          RestTemplate restTemplate = new RestTemplate() ;
+            Company company = restTemplate.getForObject("http://companyms:8081/companies/"+job.getCompanyId(), Company.class);
+            JobWithCompanyDTO jobWithCompanyDTO = JobMapper.mapToJobWithCompanyDTO(job,company);
             jobWithCompanyDTO.setCompany(company);
             return jobWithCompanyDTO;
 
@@ -53,8 +58,9 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public Job getJobId(Long i) {
-        return jobRepository.findById(i).orElse(null);
+    public JobWithCompanyDTO getJobId(Long i) {
+        Job job= jobRepository.findById(i).orElse(null);
+        return convertToDto(job);
     }
 
     @Override
