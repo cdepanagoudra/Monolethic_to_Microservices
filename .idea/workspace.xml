@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5a626d39-849b-4909-a2e0-1766dc1fecaf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/companyms/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/companyms/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/companyms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/companyms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/companyms/src/main/java/com/microservice/companyms/Company/Impl/CompanyServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/companyms/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/companyms/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/JobmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/JobmsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/JobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/JobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/JobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/dto/JobWithCompanyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/dto/JobDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/impl/JobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/impl/JobServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/mapper/JobMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/src/main/java/com/microservice/jobms/job/mapper/JobMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobms/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jobms/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviewms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/reviewms/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reviewms/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/reviewms/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-reg/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-reg/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "cdepanagoudra"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/cdepanagoudra/Monolethic_to_Microservices.git",
+    "accountId": "a78bfaa7-15e8-444c-86fa-b656284cacfd"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2qRneFl8CMD53kHjziONKcJTbik" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Microservices/companyms"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a626d39-849b-4909-a2e0-1766dc1fecaf" name="Changes" comment="" />
+      <created>1734634348854</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734634348854</updated>
+    </task>
+    <servers />
+  </component>
+</project>

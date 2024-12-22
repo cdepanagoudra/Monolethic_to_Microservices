@@ -1,9 +1,11 @@
 package com.microservice.jobms.job.dto;
 
-import com.microservice.jobms.job.Job;
 import com.microservice.jobms.job.external.Company;
+import com.microservice.jobms.job.external.Reviews;
 
-public class JobWithCompanyDTO {
+import java.util.List;
+
+public class JobDTO {
     private Long id;
     private String title;
     private String description;
@@ -61,7 +63,15 @@ public class JobWithCompanyDTO {
 
     private Company company;
 
+    private List<Reviews> reviews;
 
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Reviews> reviews) {
+        this.reviews = reviews;
+    }
 
     public Company getCompany() {
         return company;

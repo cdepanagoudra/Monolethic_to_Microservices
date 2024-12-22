@@ -1,7 +1,7 @@
 package com.microservice.jobms.job;
 
 
-import com.microservice.jobms.job.dto.JobWithCompanyDTO;
+import com.microservice.jobms.job.dto.JobDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class JobController {
     }
 
     @GetMapping
-    public ResponseEntity<List<JobWithCompanyDTO>> findAll(){
+    public ResponseEntity<List<JobDTO>> findAll(){
         return ResponseEntity.ok(jobService.findAll());
     }
     @PostMapping
@@ -27,10 +27,10 @@ public class JobController {
         return new ResponseEntity<>( "Jobs added successfully", HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<JobWithCompanyDTO> findById(@PathVariable Long id){
-        JobWithCompanyDTO jobWithCompanyDTO = jobService.getJobId(id);
-        if(jobWithCompanyDTO!=null){
-            return new ResponseEntity<>(jobWithCompanyDTO,HttpStatus.OK);
+    public ResponseEntity<JobDTO> findById(@PathVariable Long id){
+        JobDTO jobDTO = jobService.getJobId(id);
+        if(jobDTO !=null){
+            return new ResponseEntity<>(jobDTO,HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
