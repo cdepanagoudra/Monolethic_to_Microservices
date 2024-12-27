@@ -44,9 +44,6 @@ public class JobServiceImpl implements JobService {
         List<JobDTO> jobDTOS = new ArrayList<>();
 
 
-
-
-
         return jobs.stream().map(this ::convertToDto).collect(Collectors.toList());
     }
     private JobDTO convertToDto(Job job){
