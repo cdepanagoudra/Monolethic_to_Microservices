@@ -1,6 +1,7 @@
 package com.microservice.jobms.job.impl;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.microservice.jobms.job.Job;
 import com.microservice.jobms.job.JobRepository;
 import com.microservice.jobms.job.JobService;
@@ -10,6 +11,9 @@ import com.microservice.jobms.job.dto.JobDTO;
 import com.microservice.jobms.job.external.Company;
 import com.microservice.jobms.job.external.Reviews;
 import com.microservice.jobms.job.mapper.JobMapper;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -28,7 +32,7 @@ public class JobServiceImpl implements JobService {
     JobRepository jobRepository;
     @Autowired
     RestTemplate restTemplate;
-
+    int attempt =0;
     private CompanyClient companyClient;
     private ReviewClient reviewClient;
     public JobServiceImpl(JobRepository jobRepository,CompanyClient companyClient,ReviewClient reviewClient) {
@@ -39,16 +43,33 @@ public class JobServiceImpl implements JobService {
 
     //private Long nextId = 1L;
     @Override
+//    @CircuitBreaker(name = "companyBreaker", fallbackMethod = "companyBreakerFallback")
+   //@Retry(name = "companyBreaker", fallbackMethod = "companyBreakerFallback")
+    @RateLimiter(name = "companyBreaker", fallbackMethod = "companyBreaker")
     public List<JobDTO> findAll() {
+        System.out.println("Attempts : "+ ++attempt);
         List<Job> jobs = jobRepository.findAll();
-        List<JobDTO> jobDTOS = new ArrayList<>();
+        for(Job job : jobs){
+            System.out.println(job.getDescription() + "this is jobs object");
+        }
+        //List<JobDTO> jobDTOS = new ArrayList<>();
 
 
         return jobs.stream().map(this ::convertToDto).collect(Collectors.toList());
     }
-    private JobDTO convertToDto(Job job){
+    public List<JobDTO> companyBreaker(Exception s){
+        System.out.println("Rate limiter triggered. Returning fallback response.");
+        JobDTO fallbackJob = new JobDTO();
+        fallbackJob.setTitle("Fallback Job");
+        fallbackJob.setDescription("This is a fallback job description.");
+        fallbackJob.setLocation("Fallback Location");
+        return List.of(fallbackJob);
+    }
 
+    private JobDTO convertToDto(Job job){
+//            System.out.println("Entering into company object");
             Company company = companyClient.getCompany(job.getCompanyId());
+            //System.out.println("Got the company"+ company.getName() + " this is the company id : "+company.getId());
             List<Reviews> reviews = reviewClient.getReviews(job.getCompanyId());
 //          RestTemplate restTemplate = new RestTemplate() ;
             //Company company = restTemplate.getForObject("http://companyms:8081/companies/"+job.getCompanyId(), Company.class);
@@ -66,6 +87,12 @@ public class JobServiceImpl implements JobService {
     @Override
     public void createJob(Job j) {
         //job.setId(nextId++);
+//        System.out.println(j.getCompanyId()+" company id");
+//        System.out.println(j.getDescription()+" company description");
+//        System.out.println(j.getLocation()+" company location");
+//        System.out.println(j.getMaxSalary()+" max salary");
+//        System.out.println(j.getMinSalary()+" min salary");
+//        System.out.println(j.getTitle()+" title");
         jobRepository.save(j);
     }
 
